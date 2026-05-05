@@ -1,0 +1,119 @@
+/* Bonus Page – Warm golden reward feel */
+.bonus {
+  --bg: #0f0b00;
+  --card: #1a1200;
+  --border: #2d2200;
+  --gold: #f59e0b;
+  --gold-bright: #fbbf24;
+  --gold-dim: #d97706;
+  --text: #fef3c7;
+  --muted: #b08a30;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.bonus::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(245,158,11,0.1), transparent);
+}
+
+.bonus__icon {
+  font-size: 5rem;
+  animation: bounce 0.8s cubic-bezier(0.34,1.56,0.64,1) both;
+  position: relative;
+}
+@keyframes bounce {
+  0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.bonus__title {
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--gold-bright);
+  margin: 1rem 0 0.5rem;
+  animation: fadeUp 0.5s 0.2s ease both;
+}
+.bonus__sub {
+  color: var(--muted);
+  font-size: 0.95rem;
+  animation: fadeUp 0.5s 0.3s ease both;
+  margin-bottom: 2.5rem;
+}
+
+.bonus__card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 380px;
+  animation: fadeUp 0.5s 0.4s ease both;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.bonus__card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold-bright), var(--gold-dim));
+}
+.bonus__amount {
+  font-family: 'Syne', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--gold-bright);
+  line-height: 1;
+}
+.bonus__amount-label { color: var(--muted); font-size: 0.88rem; margin-top: 0.3rem; margin-bottom: 1.5rem; }
+
+.bonus__balance-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: rgba(245,158,11,0.06);
+  border: 1px solid rgba(245,158,11,0.2);
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+.bonus__balance-label { color: var(--muted); }
+.bonus__balance-val {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--gold-bright);
+}
+
+.bonus__btn {
+  padding: 0.9rem 2.5rem;
+  background: linear-gradient(135deg, var(--gold-dim), var(--gold-bright));
+  color: #0f0b00;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  border-radius: 12px;
+  animation: fadeUp 0.5s 0.5s ease both;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.bonus__btn:hover:not(:disabled) { opacity: 0.88; transform: translateY(-2px); }
+.bonus__btn:disabled { opacity: 0.5; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

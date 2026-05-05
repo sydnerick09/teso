@@ -1,0 +1,164 @@
+/* Assessment – Focused quiz interface with warm tones */
+.quiz {
+  --bg: #1a1625;
+  --card: #241e34;
+  --border: #352e4a;
+  --purple: #8b5cf6;
+  --purple-light: #a78bfa;
+  --purple-dim: #7c3aed;
+  --text: #f0edf8;
+  --muted: #9d8fc4;
+  --success: #10b981;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.quiz__header {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+.quiz__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s;
+  margin-bottom: 1.5rem;
+  background: none;
+}
+.quiz__back:hover { color: var(--text); }
+
+.quiz__progress-bar-wrap {
+  height: 6px;
+  background: var(--border);
+  border-radius: 100px;
+  overflow: hidden;
+  margin-bottom: 0.6rem;
+}
+.quiz__progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--purple), var(--purple-light));
+  border-radius: 100px;
+  transition: width 0.4s ease;
+}
+.quiz__progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.quiz__card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 600px;
+  animation: fadeIn 0.4s ease both;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.quiz__type-badge {
+  display: inline-block;
+  padding: 0.25rem 0.8rem;
+  background: rgba(139,92,246,0.15);
+  border: 1px solid rgba(139,92,246,0.3);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--purple-light);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.2rem;
+}
+.quiz__question {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+}
+.quiz__options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+.quiz__option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255,255,255,0.03);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  text-align: left;
+  font-size: 0.95rem;
+  color: var(--text);
+  width: 100%;
+}
+.quiz__option:hover { border-color: var(--purple-light); background: rgba(139,92,246,0.05); }
+.quiz__option.--selected { border-color: var(--purple); background: rgba(139,92,246,0.12); }
+.quiz__option-letter {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+.quiz__option.--selected .quiz__option-letter { background: var(--purple); color: #fff; }
+
+.quiz__btn {
+  width: 100%;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, var(--purple-dim), var(--purple));
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 12px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.quiz__btn:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
+.quiz__btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* Intro */
+.quiz__intro {
+  text-align: center;
+  max-width: 500px;
+  animation: fadeIn 0.5s ease both;
+}
+.quiz__intro-icon { font-size: 3rem; margin-bottom: 1rem; }
+.quiz__intro h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+.quiz__intro p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.75rem; }
+.quiz__intro-btn {
+  margin-top: 1.5rem;
+  padding: 0.9rem 2.5rem;
+  background: linear-gradient(135deg, var(--purple-dim), var(--purple));
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 12px;
+  transition: opacity 0.2s;
+}
+.quiz__intro-btn:hover { opacity: 0.88; }
